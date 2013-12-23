@@ -1,0 +1,1252 @@
+{
+    "car/car.group": {
+        "libraryRefs": [
+            "car/materials/car_material.material",
+            "car/materials/car_window_material.material",
+            "car/meshes/car_windows_mesh_0.mesh",
+            "car/textures/car_texture.texture",
+            "car/textures/car_emit.texture",
+            "car/entities/car_windows_mesh_0.entity",
+            "car/meshes/car_body_mesh_0.mesh",
+            "car/entities/car_body_mesh_0.entity",
+            "car/entities/RootNode.entity",
+            "car/meshes/prop_mesh_0.mesh",
+            "car/entities/prop_mesh_0.entity",
+            "GOO_ASSET_LIBRARY/car/binaries/1383311160_data.bin",
+            "GOO_ASSET_LIBRARY/car/images/car_texture.jpg",
+            "GOO_ASSET_LIBRARY/car/images/car_emit.jpg"
+        ],
+        "name": "car",
+        "ref": "car/car.group",
+        "thumbnail": "car/images/car_thumbnail.jpg"
+    },
+    "car/entities/RootNode.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    1.0601240396499634,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "car",
+        "nodeType": "Null",
+        "ref": "car/entities/RootNode.entity"
+    },
+    "car/entities/car_body_mesh_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "car/meshes/car_body_mesh_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "car/materials/car_material.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "car/entities/RootNode.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "car_body_mesh",
+        "nodeType": "Mesh",
+        "ref": "car/entities/car_body_mesh_0.entity"
+    },
+    "car/entities/car_windows_mesh_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "car/meshes/car_windows_mesh_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "car/materials/car_window_material.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "car/entities/RootNode.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "car_windows_mesh",
+        "nodeType": "Mesh",
+        "ref": "car/entities/car_windows_mesh_0.entity"
+    },
+    "car/entities/prop_mesh_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "car/meshes/prop_mesh_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "car/materials/car_material.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "car/entities/RootNode.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "prop_mesh",
+        "nodeType": "Mesh",
+        "ref": "car/entities/prop_mesh_0.entity"
+    },
+    "car/materials/car_material.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "car_material",
+        "ref": "car/materials/car_material.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {
+            "DIFFUSE_MAP": {
+                "enabled": true,
+                "textureRef": "car/textures/car_texture.texture"
+            },
+            "EMISSIVE_MAP": {
+                "enabled": true,
+                "textureRef": "car/textures/car_emit.texture"
+            }
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.5,
+                    0.5,
+                    0.5,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 6.311790938168236
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "car/materials/car_window_material.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "CustomBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "car_window_material",
+        "ref": "car/materials/car_window_material.material",
+        "renderQueue": 2000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.26
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.5659504132231405,
+                    0.817412471825695,
+                    0.9727272727272728,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.5,
+                    0.5,
+                    0.5,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 6.311790938168236
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 0.12
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 1
+            }
+        }
+    },
+    "car/meshes/car_body_mesh_0.mesh": {
+        "binaryRef": "GOO_ASSET_LIBRARY/car/binaries/1383311160_data.bin",
+        "boundingVolume": {
+            "max": [
+                0.3841547966003418,
+                0.8405561447143555,
+                0.9055318832397461
+            ],
+            "min": [
+                -0.3841547966003418,
+                0,
+                -0.7227163314819336
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            3354
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            4752,
+            3354,
+            "uint16"
+        ],
+        "name": "car_body_mesh",
+        "normals": [
+            28728,
+            4317,
+            "float32"
+        ],
+        "ref": "car/meshes/car_body_mesh_0.mesh",
+        "tangents": [
+            45996,
+            5756,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                69020,
+                2878,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 1439,
+        "vertices": [
+            11460,
+            4317,
+            "float32"
+        ]
+    },
+    "car/meshes/car_windows_mesh_0.mesh": {
+        "binaryRef": "GOO_ASSET_LIBRARY/car/binaries/1383311160_data.bin",
+        "boundingVolume": {
+            "max": [
+                0.3031497001647949,
+                0.8090143203735352,
+                0.42878103256225586
+            ],
+            "min": [
+                -0.3031497001647949,
+                0.3690643310546875,
+                -0.4464998245239258
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            144
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            0,
+            144,
+            "uint8"
+        ],
+        "name": "car_windows_mesh",
+        "normals": [
+            1296,
+            288,
+            "float32"
+        ],
+        "ref": "car/meshes/car_windows_mesh_0.mesh",
+        "tangents": [
+            2448,
+            384,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                3984,
+                192,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 96,
+        "vertices": [
+            144,
+            288,
+            "float32"
+        ]
+    },
+    "car/meshes/prop_mesh_0.mesh": {
+        "binaryRef": "GOO_ASSET_LIBRARY/car/binaries/1383311160_data.bin",
+        "boundingVolume": {
+            "max": [
+                0.38616085052490234,
+                1.1939891576766968,
+                0.04124673083424568
+            ],
+            "min": [
+                -0.38616085052490234,
+                0.8204031586647034,
+                -0.04124675691127777
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            354
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            80532,
+            354,
+            "uint8"
+        ],
+        "name": "prop_mesh",
+        "normals": [
+            83780,
+            723,
+            "float32"
+        ],
+        "ref": "car/meshes/prop_mesh_0.mesh",
+        "tangents": [
+            86672,
+            964,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                90528,
+                482,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 241,
+        "vertices": [
+            80888,
+            723,
+            "float32"
+        ]
+    },
+    "car/textures/car_emit.texture": {
+        "anisotropy": 1,
+        "fileName": "car_texture.jpg",
+        "flipY": true,
+        "magFilter": "Bilinear",
+        "minFilter": "Trilinear",
+        "name": "car_emit",
+        "offset": [
+            0,
+            0
+        ],
+        "realUrl": "/Users/joakimareschoug/Goo/004_AssetsLibrary/Maya/textures/car_emit.jpg",
+        "ref": "car/textures/car_emit.texture",
+        "repeat": [
+            1,
+            1
+        ],
+        "url": "GOO_ASSET_LIBRARY/car/images/car_emit.jpg",
+        "wrapU": "Repeat",
+        "wrapV": "Repeat"
+    },
+    "car/textures/car_texture.texture": {
+        "anisotropy": 1,
+        "fileName": "car_texture.jpg",
+        "flipY": true,
+        "magFilter": "Bilinear",
+        "minFilter": "Trilinear",
+        "name": "car_texture",
+        "offset": [
+            0,
+            0
+        ],
+        "realUrl": "/Users/joakimareschoug/Goo/004_AssetsLibrary/Maya/textures/car_texture.jpg",
+        "ref": "car/textures/car_texture.texture",
+        "repeat": [
+            1,
+            1
+        ],
+        "url": "GOO_ASSET_LIBRARY/car/images/car_texture.jpg",
+        "wrapU": "Repeat",
+        "wrapV": "Repeat"
+    },
+    "entities/DefaultToolCamera.entity": {
+        "components": {
+            "camera": {
+                "aspect": 1.534965034965035,
+                "far": 20000,
+                "fov": 45,
+                "near": 0.4
+            },
+            "script": {
+                "scriptRefs": [
+                    "scripts/DefaultToolCameraScript.script"
+                ]
+            }
+        },
+        "name": "DefaultToolCamera.entity",
+        "ref": "entities/DefaultToolCamera.entity"
+    },
+    "entities/default_light.entity": {
+        "components": {
+            "light": {
+                "color": [
+                    0.8,
+                    0.8,
+                    0.8
+                ],
+                "type": "DirectionalLight"
+            },
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    -0.557,
+                    0.557,
+                    0.557
+                ]
+            }
+        }
+    },
+    "entities/default_light_2.entity": {
+        "components": {
+            "light": {
+                "color": [
+                    0.2,
+                    0.2,
+                    0.3
+                ],
+                "type": "DirectionalLight"
+            },
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0.557,
+                    -0.557,
+                    -0.557
+                ]
+            }
+        }
+    },
+    "goo_logo/entities/PointLight.entity": {
+        "components": {
+            "light": {
+                "attenuate": true,
+                "color": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "direction": [
+                    0,
+                    0,
+                    0
+                ],
+                "intensity": 1,
+                "lightCookie": null,
+                "range": 500,
+                "shadowCaster": false,
+                "shadowSettings": {
+                    "darkness": 0,
+                    "far": 500,
+                    "fov": 55,
+                    "near": 1,
+                    "projection": "Perspective",
+                    "resolution": [
+                        256,
+                        256
+                    ],
+                    "shadowType": "VSM",
+                    "size": 400,
+                    "type": "Blur",
+                    "upVector": [
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "specularIntensity": 1,
+                "type": "PointLight"
+            },
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    12.182777404785156,
+                    0
+                ]
+            }
+        },
+        "name": "PointLight",
+        "ref": "goo_logo/entities/PointLight.entity"
+    },
+    "goo_logo/entities/RootNode.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    100,
+                    100,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "goo_logo",
+        "nodeType": "Null",
+        "ref": "goo_logo/entities/RootNode.entity"
+    },
+    "goo_logo/entities/goo_logo_mesh_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "goo_logo/meshes/goo_logo_mesh_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "goo_logo/materials/goo_logo_material.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "goo_logo/entities/RootNode.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.07315394029673937,
+                    0.07315394029673937,
+                    0.07315394029673937
+                ],
+                "translation": [
+                    0.16053485468299922,
+                    0.09950703656553217,
+                    2.1801573126536424e-09
+                ]
+            }
+        },
+        "name": "goo_logo_mesh",
+        "nodeType": "Mesh",
+        "ref": "goo_logo/entities/goo_logo_mesh_0.entity"
+    },
+    "goo_logo/goo_logo.group": {
+        "libraryRefs": [
+            "goo_logo/entities/goo_logo_mesh_0.entity",
+            "goo_logo/materials/goo_logo_material.material",
+            "goo_logo/meshes/goo_logo_mesh_0.mesh",
+            "goo_logo/entities/RootNode.entity",
+            "GOO_ASSET_LIBRARY/goo_logo/binaries/1383235742_data.bin",
+            "goo_logo/entities/PointLight.entity"
+        ],
+        "name": "goo_logo",
+        "ref": "goo_logo/goo_logo.group",
+        "thumbnail": "goo_logo/images/logo_thumbnail.jpg"
+    },
+    "goo_logo/materials/goo_logo_material.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "goo_logo_material",
+        "ref": "goo_logo/materials/goo_logo_material.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.08
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.30049586776859505,
+                    0.3588952667167544,
+                    0.9181818181818182,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.6247933884297521,
+                    0.9078166791885799,
+                    0.9818181818181818,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.49
+            }
+        }
+    },
+    "goo_logo/meshes/goo_logo_mesh_0.mesh": {
+        "binaryRef": "GOO_ASSET_LIBRARY/goo_logo/binaries/1383235742_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.064130783081055,
+                2.455604076385498,
+                0.8351833820343018
+            ],
+            "min": [
+                -8.45309066772461,
+                -5.176087379455566,
+                -0.8351834416389465
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            29952
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            0,
+            29952,
+            "uint16"
+        ],
+        "name": "goo_logo_mesh",
+        "normals": [
+            127920,
+            17004,
+            "float32"
+        ],
+        "ref": "goo_logo/meshes/goo_logo_mesh_0.mesh",
+        "tangents": [
+            195936,
+            22672,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                286624,
+                11336,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 5668,
+        "vertices": [
+            59904,
+            17004,
+            "float32"
+        ]
+    },
+    "project.project": {
+        "backgroundColor": [
+            0.75,
+            0.76,
+            0.78,
+            1
+        ],
+        "created": "2013-12-10T16:16:03.476250",
+        "deleted": false,
+        "edit": [],
+        "entityRefs": [
+            "entities/DefaultToolCamera.entity",
+            "car/entities/car_windows_mesh_0.entity",
+            "car/entities/car_body_mesh_0.entity",
+            "car/entities/RootNode.entity",
+            "car/entities/prop_mesh_0.entity",
+            "goo_logo/entities/goo_logo_mesh_0.entity",
+            "goo_logo/entities/RootNode.entity",
+            "star_plain/entities/RootNode.entity",
+            "star_plain/entities/star_plain_mesh_0.entity",
+            "goo_logo/entities/PointLight.entity",
+            "entities/default_light.entity",
+            "entities/default_light_2.entity"
+        ],
+        "fogColor": [
+            1,
+            1,
+            1
+        ],
+        "fogFar": 1000,
+        "fogNear": 0,
+        "globalAmbient": [
+            0,
+            0,
+            0
+        ],
+        "groupRefs": [
+            "car/car.group",
+            "goo_logo/goo_logo.group",
+            "star_plain/star_plain.group",
+            "root.group"
+        ],
+        "id": "vVh8RRIGQSynaLwx69nXKQ",
+        "licenseType": "CC0",
+        "modified": "2013-12-10T20:21:14.253610",
+        "name": "Default Goo Project",
+        "originalLicenseType": null,
+        "own": [
+            "wea-6RsRQo-ziGjYWuLmwg"
+        ],
+        "parent": null,
+        "public": true,
+        "publishedURL": "http://goote.ch/vVh8RRIGQSynaLwx69nXKQ",
+        "ref": "project.project",
+        "screenshot": "images/screenshot.png",
+        "skybox": {
+            "attribution": {
+                "link": "http://www.3delyvisions.com/",
+                "name": "3DElyvisions"
+            },
+            "environmentType": 1,
+            "imageUrls": [
+                "GOO_ASSET_LIBRARY/images/elyvisions/sky30/rightsh.jpg",
+                "GOO_ASSET_LIBRARY/images/elyvisions/sky30/leftsh.jpg",
+                "GOO_ASSET_LIBRARY/images/elyvisions/sky30/topsh.jpg",
+                "GOO_ASSET_LIBRARY/images/elyvisions/sky30/botsh.jpg",
+                "GOO_ASSET_LIBRARY/images/elyvisions/sky30/frontsh.jpg",
+                "GOO_ASSET_LIBRARY/images/elyvisions/sky30/backsh.jpg"
+            ],
+            "ref": "environment/Hills.skybox",
+            "rotation": 0,
+            "shape": "Box"
+        },
+        "useFog": false,
+        "view": []
+    },
+    "root.group": {
+        "libraryRefs": [
+            "scripts/DefaultToolCameraScript.script",
+            "entities/DefaultToolCamera.entity",
+            "images/screenshot.png",
+            "entities/default_light.entity",
+            "entities/default_light_2.entity"
+        ],
+        "name": "root",
+        "ref": "root.group"
+    },
+    "scripts/DefaultToolCameraScript.script": {
+        "className": "OrbitNPanControlScript",
+        "name": "DefaultToolCameraScript.script",
+        "options": {
+            "clampAzimuth": false,
+            "detailZoom": 0.15,
+            "dragOnly": true,
+            "invertedWheel": true,
+            "invertedX": false,
+            "invertedY": false,
+            "lookAtPoint": [
+                0,
+                0.4305601418018341,
+                -9.536741458759934e-07
+            ],
+            "maxAscent": 1.5699236621688994,
+            "maxAzimuth": 4.71238898038469,
+            "maxZoomDistance": 6000,
+            "minAscent": -1.5699236621688994,
+            "minAzimuth": 1.5707963267948966,
+            "minZoomDistance": 0.1,
+            "spherical": [
+                17.071090698242188,
+                4.493985176086426,
+                0.5499997138977051
+            ],
+            "turnSpeedHorizontal": 0.005,
+            "turnSpeedVertical": 0.005,
+            "worldUpVector": [
+                0,
+                1,
+                0
+            ],
+            "zoomSpeed": 0.3
+        },
+        "ref": "scripts/DefaultToolCameraScript.script"
+    },
+    "star_plain/entities/RootNode.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    -1.1654778718948364,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "star_plain",
+        "nodeType": "Null",
+        "ref": "star_plain/entities/RootNode.entity"
+    },
+    "star_plain/entities/star_plain_mesh_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "star_plain/meshes/star_plain_mesh_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "star_plain/materials/star_material.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "star_plain/entities/RootNode.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "star_plain_mesh",
+        "nodeType": "Mesh",
+        "ref": "star_plain/entities/star_plain_mesh_0.entity"
+    },
+    "star_plain/materials/star_material.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "star_material",
+        "ref": "star_plain/materials/star_material.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {
+            "DIFFUSE_MAP": {
+                "enabled": true,
+                "textureRef": "star_plain/textures/star_texture.texture"
+            },
+            "EMISSIVE_MAP": {
+                "enabled": true,
+                "textureRef": "star_plain/textures/star_texture.texture"
+            }
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.9090909090909091,
+                    0.6948159278737791,
+                    0.5289256198347106,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.9454545454545454,
+                    0.9185442524417731,
+                    0.7649586776859504,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 10
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "star_plain/meshes/star_plain_mesh_0.mesh": {
+        "binaryRef": "GOO_ASSET_LIBRARY/star_plain/binaries/1383228706_data.bin",
+        "boundingVolume": {
+            "max": [
+                0.3913113474845886,
+                0.4114488363265991,
+                0.10883654654026031
+            ],
+            "min": [
+                -0.3913109302520752,
+                -0.3328690230846405,
+                -0.10883654654026031
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            120
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            0,
+            120,
+            "uint8"
+        ],
+        "name": "star_plain_mesh",
+        "normals": [
+            1320,
+            300,
+            "float32"
+        ],
+        "ref": "star_plain/meshes/star_plain_mesh_0.mesh",
+        "tangents": [
+            2520,
+            400,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                4120,
+                200,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 100,
+        "vertices": [
+            120,
+            300,
+            "float32"
+        ]
+    },
+    "star_plain/star_plain.group": {
+        "libraryRefs": [
+            "star_plain/textures/star_texture.texture",
+            "star_plain/meshes/star_plain_mesh_0.mesh",
+            "star_plain/entities/RootNode.entity",
+            "star_plain/materials/star_material.material",
+            "star_plain/entities/star_plain_mesh_0.entity",
+            "GOO_ASSET_LIBRARY/star_plain/binaries/1383228706_data.bin",
+            "GOO_ASSET_LIBRARY/star_plain/images/star_texture.png"
+        ],
+        "name": "star_plain",
+        "ref": "star_plain/star_plain.group",
+        "thumbnail": "star/images/star_thumbnail.jpg"
+    },
+    "star_plain/textures/star_texture.texture": {
+        "anisotropy": 1,
+        "fileName": "star_texture.png",
+        "flipY": true,
+        "magFilter": "Bilinear",
+        "minFilter": "Trilinear",
+        "name": "star_texture",
+        "offset": [
+            0,
+            0
+        ],
+        "realUrl": "textures/star_texture.png",
+        "ref": "star_plain/textures/star_texture.texture",
+        "repeat": [
+            1,
+            1
+        ],
+        "url": "GOO_ASSET_LIBRARY/star_plain/images/star_texture.png",
+        "wrapU": "Repeat",
+        "wrapV": "Repeat"
+    }
+}
