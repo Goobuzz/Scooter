@@ -74,7 +74,7 @@ define([
 		wheel.set_m_wheelsDampingRelaxation(2.3);
 		wheel.set_m_wheelsDampingCompression(4.4);
 		wheel.set_m_frictionSlip(1000);
-		wheel.set_m_rollInfluence(0.01); // this value controls how easily a vehicle can tipp over. Lower values tipp less :)
+		wheel.set_m_rollInfluence(0); // this value controls how easily a vehicle can tipp over. Lower values tipp less :)
 	};
 	VehicleHelper.prototype.updateWheelTransform = function() {
 		for(var i=0;i<this.vehicle.getNumWheels();i++){
@@ -91,10 +91,10 @@ define([
 		// var bound = entity.meshDataComponent.modelBound;
 		var bound = EntityUtils.getTotalBoundingBox( this.chassis);
 		this.wheelRadius = bound.xExtent / 3;
-		this.addFrontWheel( [bound.xExtent, 0.0,  bound.zExtent]);
-		this.addFrontWheel([-bound.xExtent, 0.0,  bound.zExtent]);
-		this.addRearWheel(  [bound.xExtent, 0.0, -bound.zExtent]);
-		this.addRearWheel( [-bound.xExtent, 0.0, -bound.zExtent]);
+		this.addFrontWheel( [bound.xExtent, -0.06,  bound.zExtent]);
+		this.addFrontWheel([-bound.xExtent, -0.06,  bound.zExtent]);
+		this.addRearWheel(  [bound.xExtent, -0.06, -bound.zExtent]);
+		this.addRearWheel( [-bound.xExtent, -0.06, -bound.zExtent]);
 	};
 	VehicleHelper.prototype.createDebugTire = function(pos, isFrontWheel) {
 		var material = Material.createMaterial(ShaderLib.simpleLit);
