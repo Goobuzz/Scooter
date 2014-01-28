@@ -35,8 +35,8 @@
                 ],
                 "translation": [
                     1.0601240396499634,
-                    0,
-                    0
+                    0.3716907501220703,
+                    2.490769386291504
                 ]
             }
         },
@@ -539,22 +539,108 @@
         "wrapU": "Repeat",
         "wrapV": "Repeat"
     },
-    "entities/DefaultToolCamera.entity": {
+    "entities/Box.entity": {
         "components": {
-            "camera": {
-                "aspect": 1.534965034965035,
-                "far": 20000,
-                "fov": 45,
-                "near": 0.4
+            "meshData": {
+                "shape": "Box"
             },
-            "script": {
-                "scriptRefs": [
-                    "scripts/DefaultToolCameraScript.script"
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [],
+                "receiveShadows": true
+            },
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    70
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    -7.5446977615356445,
+                    -0.30097508430480957,
+                    4.090592384338379
                 ]
             }
         },
-        "name": "DefaultToolCamera.entity",
-        "ref": "entities/DefaultToolCamera.entity"
+        "hidden": true,
+        "name": "Box",
+        "ref": "entities/Box.entity"
+    },
+    "entities/Box_0.entity": {
+        "components": {
+            "meshData": {
+                "shape": "Box"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [],
+                "receiveShadows": true
+            },
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    30
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    -22.31814193725586,
+                    -0.19287601113319397,
+                    22.217424392700195
+                ]
+            }
+        },
+        "hidden": true,
+        "name": "Box_0",
+        "ref": "entities/Box_0.entity"
+    },
+    "entities/ToolCamera.entity": {
+        "components": {
+            "camera": {
+                "aspect": 1.5331781140861467,
+                "far": 10000,
+                "fov": 45,
+                "near": 1
+            },
+            "script": {
+                "scriptRefs": [
+                    "scripts/ToolCameraScript.script"
+                ]
+            },
+            "transform": {
+                "rotation": [
+                    0.6748771071434021,
+                    0,
+                    0.7379301190376282,
+                    0.39197880029678345,
+                    0.8472546339035034,
+                    -0.3584858775138855,
+                    -0.6252147555351257,
+                    0.5311868786811829,
+                    0.5717927813529968
+                ],
+                "translation": [
+                    -47.545555114746094,
+                    40.77289581298828,
+                    54.433074951171875
+                ]
+            }
+        },
+        "name": "ToolCamera",
+        "ref": "entities/ToolCamera.entity"
     },
     "entities/default_light.entity": {
         "components": {
@@ -881,6 +967,7 @@
             "float32"
         ]
     },
+    "missing_libraryRefs": [],
     "project.project": {
         "backgroundColor": [
             0.75,
@@ -892,7 +979,6 @@
         "deleted": false,
         "edit": [],
         "entityRefs": [
-            "entities/DefaultToolCamera.entity",
             "car/entities/car_windows_mesh_0.entity",
             "car/entities/car_body_mesh_0.entity",
             "car/entities/RootNode.entity",
@@ -902,6 +988,23 @@
             "star_plain/entities/RootNode.entity",
             "star_plain/entities/star_plain_mesh_0.entity",
             "goo_logo/entities/PointLight.entity",
+            "entities/ToolCamera.entity",
+            "star_plain/entities/star_plain_mesh.entity",
+            "star_plain/entities/RootNode_0.entity",
+            "star_plain/entities/star_plain_mesh_1.entity",
+            "star_plain/entities/RootNode_1.entity",
+            "star_plain/entities/star_plain_mesh_2.entity",
+            "star_plain/entities/RootNode_2.entity",
+            "star_plain/entities/star_plain_mesh_3.entity",
+            "star_plain/entities/RootNode_3.entity",
+            "star_plain/entities/star_plain_mesh_4.entity",
+            "star_plain/entities/RootNode_4.entity",
+            "star_plain/entities/star_plain_mesh_5.entity",
+            "star_plain/entities/RootNode_5.entity",
+            "star_plain/entities/star_plain_mesh_6.entity",
+            "star_plain/entities/RootNode_6.entity",
+            "entities/Box.entity",
+            "entities/Box_0.entity",
             "entities/default_light.entity",
             "entities/default_light_2.entity"
         ],
@@ -925,8 +1028,8 @@
         ],
         "id": "vVh8RRIGQSynaLwx69nXKQ",
         "licenseType": "CC0",
-        "modified": "2013-12-10T20:21:14.253610",
-        "name": "Default Goo Project",
+        "modified": "2014-01-24T13:41:29.195936+00:00",
+        "name": "Scooter",
         "originalLicenseType": null,
         "own": [
             "wea-6RsRQo-ziGjYWuLmwg"
@@ -959,51 +1062,40 @@
     },
     "root.group": {
         "libraryRefs": [
-            "scripts/DefaultToolCameraScript.script",
-            "entities/DefaultToolCamera.entity",
             "images/screenshot.png",
+            "entities/ToolCamera.entity",
+            "scripts/ToolCameraScript.script",
+            "entities/Box.entity",
+            "entities/Box_0.entity",
             "entities/default_light.entity",
             "entities/default_light_2.entity"
         ],
         "name": "root",
         "ref": "root.group"
     },
-    "scripts/DefaultToolCameraScript.script": {
+    "scripts/ToolCameraScript.script": {
         "className": "OrbitNPanControlScript",
-        "name": "DefaultToolCameraScript.script",
+        "name": "ToolCameraScript",
         "options": {
-            "clampAzimuth": false,
-            "detailZoom": 0.15,
-            "dragOnly": true,
-            "invertedWheel": true,
-            "invertedX": false,
-            "invertedY": false,
+            "baseDistance": 5,
+            "drag": 5,
+            "interpolationSpeed": 100,
             "lookAtPoint": [
-                0,
-                0.4305601418018341,
-                -9.536741458759934e-07
+                -13.465919494628906,
+                11.818595886230469,
+                23.265399932861328
             ],
-            "maxAscent": 1.5699236621688994,
-            "maxAzimuth": 4.71238898038469,
             "maxZoomDistance": 6000,
-            "minAscent": -1.5699236621688994,
-            "minAzimuth": 1.5707963267948966,
             "minZoomDistance": 0.1,
+            "releaseVelocity": false,
             "spherical": [
-                17.071090698242188,
-                4.493985176086426,
-                0.5499997138977051
-            ],
-            "turnSpeedHorizontal": 0.005,
-            "turnSpeedVertical": 0.005,
-            "worldUpVector": [
-                0,
-                1,
-                0
+                54.508689880371094,
+                2.400794506072998,
+                0.5600008368492126
             ],
             "zoomSpeed": 0.3
         },
-        "ref": "scripts/DefaultToolCameraScript.script"
+        "ref": "scripts/ToolCameraScript.script"
     },
     "star_plain/entities/RootNode.entity": {
         "components": {
@@ -1019,15 +1111,221 @@
                     1
                 ],
                 "translation": [
-                    -1.1654778718948364,
-                    0,
-                    0
+                    32.51384353637695,
+                    0.5975351333618164,
+                    2.9744129180908203
                 ]
             }
         },
         "name": "star_plain",
         "nodeType": "Null",
         "ref": "star_plain/entities/RootNode.entity"
+    },
+    "star_plain/entities/RootNode_0.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    -0.9154778718948364,
+                    0.5975351333618164,
+                    23.766603469848633
+                ]
+            }
+        },
+        "name": "star_plain",
+        "nodeType": "Null",
+        "ref": "star_plain/entities/RootNode_0.entity"
+    },
+    "star_plain/entities/RootNode_1.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    30.38315200805664,
+                    0.5975351333618164,
+                    24.016603469848633
+                ]
+            }
+        },
+        "name": "star_plain",
+        "nodeType": "Null",
+        "ref": "star_plain/entities/RootNode_1.entity"
+    },
+    "star_plain/entities/RootNode_2.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    -0.6178174018859863,
+                    0.5975351333618164,
+                    3.2244129180908203
+                ]
+            }
+        },
+        "name": "star_plain",
+        "nodeType": "Null",
+        "ref": "star_plain/entities/RootNode_2.entity"
+    },
+    "star_plain/entities/RootNode_3.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    -34.92601013183594,
+                    0.5975351333618164,
+                    3.4744129180908203
+                ]
+            }
+        },
+        "name": "star_plain",
+        "nodeType": "Null",
+        "ref": "star_plain/entities/RootNode_3.entity"
+    },
+    "star_plain/entities/RootNode_4.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    -17.334842681884766,
+                    0.5975351333618164,
+                    -2.7322254180908203
+                ]
+            }
+        },
+        "name": "star_plain",
+        "nodeType": "Null",
+        "ref": "star_plain/entities/RootNode_4.entity"
+    },
+    "star_plain/entities/RootNode_5.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    -23.383935928344727,
+                    0.5975351333618164,
+                    -23.05220603942871
+                ]
+            }
+        },
+        "name": "star_plain",
+        "nodeType": "Null",
+        "ref": "star_plain/entities/RootNode_5.entity"
+    },
+    "star_plain/entities/RootNode_6.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    -34.67601013183594,
+                    0.5975351333618164,
+                    23.247793197631836
+                ]
+            }
+        },
+        "name": "star_plain",
+        "nodeType": "Null",
+        "ref": "star_plain/entities/RootNode_6.entity"
+    },
+    "star_plain/entities/star_plain_mesh.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "star_plain/meshes/star_plain_mesh_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "star_plain/materials/star_material.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "star_plain/entities/RootNode_0.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "star_plain_mesh",
+        "nodeType": "Mesh",
+        "ref": "star_plain/entities/star_plain_mesh.entity"
     },
     "star_plain/entities/star_plain_mesh_0.entity": {
         "components": {
@@ -1065,6 +1363,234 @@
         "name": "star_plain_mesh",
         "nodeType": "Mesh",
         "ref": "star_plain/entities/star_plain_mesh_0.entity"
+    },
+    "star_plain/entities/star_plain_mesh_1.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "star_plain/meshes/star_plain_mesh_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "star_plain/materials/star_material.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "star_plain/entities/RootNode_1.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "star_plain_mesh",
+        "nodeType": "Mesh",
+        "ref": "star_plain/entities/star_plain_mesh_1.entity"
+    },
+    "star_plain/entities/star_plain_mesh_2.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "star_plain/meshes/star_plain_mesh_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "star_plain/materials/star_material.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "star_plain/entities/RootNode_2.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "star_plain_mesh",
+        "nodeType": "Mesh",
+        "ref": "star_plain/entities/star_plain_mesh_2.entity"
+    },
+    "star_plain/entities/star_plain_mesh_3.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "star_plain/meshes/star_plain_mesh_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "star_plain/materials/star_material.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "star_plain/entities/RootNode_3.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "star_plain_mesh",
+        "nodeType": "Mesh",
+        "ref": "star_plain/entities/star_plain_mesh_3.entity"
+    },
+    "star_plain/entities/star_plain_mesh_4.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "star_plain/meshes/star_plain_mesh_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "star_plain/materials/star_material.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "star_plain/entities/RootNode_4.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "star_plain_mesh",
+        "nodeType": "Mesh",
+        "ref": "star_plain/entities/star_plain_mesh_4.entity"
+    },
+    "star_plain/entities/star_plain_mesh_5.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "star_plain/meshes/star_plain_mesh_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "star_plain/materials/star_material.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "star_plain/entities/RootNode_5.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "star_plain_mesh",
+        "nodeType": "Mesh",
+        "ref": "star_plain/entities/star_plain_mesh_5.entity"
+    },
+    "star_plain/entities/star_plain_mesh_6.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "star_plain/meshes/star_plain_mesh_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "star_plain/materials/star_material.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "star_plain/entities/RootNode_6.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "star_plain_mesh",
+        "nodeType": "Mesh",
+        "ref": "star_plain/entities/star_plain_mesh_6.entity"
     },
     "star_plain/materials/star_material.material": {
         "blendState": {
@@ -1222,7 +1748,21 @@
             "star_plain/materials/star_material.material",
             "star_plain/entities/star_plain_mesh_0.entity",
             "GOO_ASSET_LIBRARY/star_plain/binaries/1383228706_data.bin",
-            "GOO_ASSET_LIBRARY/star_plain/images/star_texture.png"
+            "GOO_ASSET_LIBRARY/star_plain/images/star_texture.png",
+            "star_plain/entities/star_plain_mesh.entity",
+            "star_plain/entities/RootNode_0.entity",
+            "star_plain/entities/star_plain_mesh_1.entity",
+            "star_plain/entities/RootNode_1.entity",
+            "star_plain/entities/star_plain_mesh_2.entity",
+            "star_plain/entities/RootNode_2.entity",
+            "star_plain/entities/star_plain_mesh_3.entity",
+            "star_plain/entities/RootNode_3.entity",
+            "star_plain/entities/star_plain_mesh_4.entity",
+            "star_plain/entities/RootNode_4.entity",
+            "star_plain/entities/star_plain_mesh_5.entity",
+            "star_plain/entities/RootNode_5.entity",
+            "star_plain/entities/star_plain_mesh_6.entity",
+            "star_plain/entities/RootNode_6.entity"
         ],
         "name": "star_plain",
         "ref": "star_plain/star_plain.group",
