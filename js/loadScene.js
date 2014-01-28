@@ -3,6 +3,7 @@ require([
     'goo/statemachine/FSMSystem',
     'goo/addons/howler/systems/HowlerSystem',
     'goo/loaders/DynamicLoader',
+	'goo/entities/components/ScriptComponent',
     'goo/addons/ammo/AmmoSystem',
     'goo/addons/ammo/AmmoComponent',
     'goo/math/Vector3',
@@ -12,6 +13,7 @@ require([
     FSMSystem,
     HowlerSystem,
     DynamicLoader,
+    ScriptComponent,
     AmmoSystem,
     AmmoComponent,
     Vector3,
@@ -85,12 +87,14 @@ require([
 
 				// Application code goes here!
 				
-				
-				var car = loader.getCachedObjectForRef('car/entities/RootNode.entity');
-				var logo = loader.getCachedObjectForRef('goo_logo/entities/goo_logo_mesh_0.entity');
-				var pos = car.transformComponent.transform.translation.clone();
 				goo.world.process();
 
+				loader.getCachedObjectForRef('car/entities/prop_mesh_0.entity')
+					.setComponent(new ScriptComponent({ run: function (entity) {
+						entity.transformComponent.setRotation( 0, goo.world.time * 20, 0);
+					}
+				}));
+				
 				for( var k in configs)if(k[k.length-1] == 'y' ) {
 					console.log(k);
 					if( k.indexOf('star_plain/entities/RootNode') < 0 )
@@ -99,17 +103,22 @@ require([
 					star.setComponent(new AmmoComponent({mass:3, useWorldBounds:true, showBounds:false}));
 				}
 
-
+				var logo = loader.getCachedObjectForRef('goo_logo/entities/goo_logo_mesh_0.entity');
 				logo.setComponent(new AmmoComponent({mass:0, useWorldTransform:true}));
+
+				var car = loader.getCachedObjectForRef('car/entities/RootNode.entity');
+				var pos = car.transformComponent.transform.translation.clone();
 				car.setComponent(new AmmoComponent({mass:350, useWorldBounds:true, showBounds:false}));
 				var vehicleHelper = new VehicleHelper(goo, ammoSystem, car, 2, 0.6, false);
 				vehicleHelper.setWheelAxle( 1, 0, 0);
 				vehicleHelper.addDefaultWheels();
+
 				var cam = loader.getCachedObjectForRef('entities/ToolCamera.entity');
 				cam.scriptComponent.scripts = [];
 				car.transformComponent.attachChild( cam.transformComponent);
 				cam.transformComponent.setTranslation(0,10,-10);
 				cam.transformComponent.transform.rotation.lookAt( new Vector3(0,1,-1), new Vector3(0,1,0)); 
+
 				var keys = new Array(127).join('0').split('').map(parseFloat); // prefill with 0s
 				var keyHandler = function (e) {
 					keys[e.keyCode] = e.type === "keydown" ? 1 : 0;
