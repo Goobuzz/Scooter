@@ -115,9 +115,34 @@ require([
 
 				var cam = loader.getCachedObjectForRef('entities/ToolCamera.entity');
 				cam.scriptComponent.scripts = [];
-				car.transformComponent.attachChild( cam.transformComponent);
-				cam.transformComponent.setTranslation(0,10,-10);
-				cam.transformComponent.transform.rotation.lookAt( new Vector3(0,1,-1), new Vector3(0,1,0)); 
+				//car.transformComponent.attachChild( cam.transformComponent);
+				//cam.transformComponent.setTranslation(0,10,-10);
+				//cam.transformComponent.transform.rotation.lookAt( new Vector3(0,1,-1), new Vector3(0,1,0));
+				
+				var newTrans = new Vector3();
+				var direction = new Vector3(0,0,1);
+				var forward = new Vector3();
+				
+				var camScriptObject = {};
+				camScriptObject.run = function(entity,tpf) {
+					var transform = car.transformComponent.transform;
+					var t = transform.translation;
+					//forward.seta(direction).scale(-5);
+
+					transform.rotation.applyPost(forward);
+					newTrans.x = t.x;
+					newTrans.y = t.y + 2.5;
+					newTrans.z = t.z;
+
+					newTrans.add(forward);
+
+					entity.transformComponent.transform.translation.lerp(newTrans,0.05);
+					entity.transformComponent.transform.lookAt(new Vector3(t.x,t.y + 1,t.z ),Vector3.UNIT_Y);
+					entity.transformComponent.setUpdated();
+				}
+				
+				cam.scriptComponent.scripts.push(camScriptObject);
+
 
 				var keys = new Array(127).join('0').split('').map(parseFloat); // prefill with 0s
 				var keyHandler = function (e) {
