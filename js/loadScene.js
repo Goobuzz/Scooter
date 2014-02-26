@@ -119,26 +119,19 @@ require([
 				//cam.transformComponent.setTranslation(0,10,-10);
 				//cam.transformComponent.transform.rotation.lookAt( new Vector3(0,1,-1), new Vector3(0,1,0));
 				
-				var newTrans = new Vector3();
-				var direction = new Vector3(0,0,1);
-				var forward = new Vector3();
-				
+				var aboveCar = new Vector3();
+				var behindCar = new Vector3();
 				var camScriptObject = {};
 				camScriptObject.run = function(entity,tpf) {
 					var transform = car.transformComponent.transform;
-					var t = transform.translation;
-					//forward.seta(direction).scale(-5);
+					var pos = transform.translation;
 
-					transform.rotation.applyPost(forward);
-					newTrans.x = t.x;
-					newTrans.y = t.y + 2.5;
-					newTrans.z = t.z;
+					behindCar.setd(0,0,-3);
+					transform.rotation.applyPost(behindCar);
+					behindCar.addv(pos).add_d(0,2.5,0);
 
-					newTrans.add(forward);
-
-					entity.transformComponent.transform.translation.lerp(newTrans,0.05);
-					entity.transformComponent.transform.lookAt(new Vector3(t.x,t.y + 1,t.z ),Vector3.UNIT_Y);
-					entity.transformComponent.setUpdated();
+					entity.transformComponent.transform.translation.lerp(behindCar,0.05);
+					entity.lookAt(aboveCar.setv(pos).add_d(0,1,0),Vector3.UNIT_Y);
 				}
 				
 				cam.scriptComponent.scripts.push(camScriptObject);
