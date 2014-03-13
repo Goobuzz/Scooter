@@ -81,7 +81,7 @@ require([
 				
 				return loader.load(projectId);
 
-			}).then(function(obj) {
+			}).then(function() {
 
 				// This code will be called when the project has finished loading.
 				goo.renderer.domElement.id = 'goo';
@@ -89,22 +89,22 @@ require([
 
 				// Application code goes here!
 
-				// Process the world, so all entity world bounds and worldTransforms are up to date.
+				// Process the world, so all entities, world bounds and worldTransforms are up to date.
 				goo.world.process();
-				var es = obj.mainScene.entities;
+				
+				// goo.world.by.name returns an goo/entities/EntitySelection object
+				// see http://code.gooengine.com/latest/docs/World.html
+
 				// Get all the duplicated star entities and give them real physical behavior using the AmmoComponent
-				for( var k in es ) {
-					console.log( es[k].name);
-					if(es[k].name == 'Star') {
-						es[k].setTag('Star');
-						es[k].setComponent(new AmmoComponent({mass:3, useWorldBounds:true, showBounds:false}));
-					}
-				}
-				var em = goo.world.entityManager;
-				var car  = em.getEntityByName('Car');
-				var logo = em.getEntityByName('goo_logo_mesh'); // 'Goo Logo'
-				var prop = em.getEntityByName('prop_mesh')
-				var cam  = em.getEntityByName('Default Camera')
+				var stars = goo.world.getEntities().filter(function(e){return e.name=='Star'});
+				stars.forEach(function(star) {
+					star.setComponent(new AmmoComponent({mass:3, useWorldBounds:true, showBounds:false}));
+				});
+				var car  = goo.world.by.name('Car').first();
+				var logo = goo.world.by.name('goo_logo_mesh').first();
+				var prop = goo.world.by.name('prop_mesh').first();
+				var cam  = goo.world.by.name('Default Camera').first();
+
 				// make the logo collidable using the AmmoComponent.
 				// AmmoComponents with a mass=0 are static and will not move.
 				logo.setComponent(new AmmoComponent({mass:0, useWorldTransform:true}));
