@@ -170,6 +170,9 @@ require([
 				var canvas = goo.renderer.domElement;
 				var t = [];
 				canvas.addEventListener( 'touchstart', function(event) {
+				  if( event.touches.length == 2) {
+					vehicleHelper.resetAtPos(pos.data[0], pos.data[1], pos.data[2]);
+				  }
 				  for (var i = 0; i < event.touches.length; i++) {
 					var touch = event.touches[i];
 					t[i]={};
