@@ -166,6 +166,34 @@ require([
 				}
 				document.body.addEventListener('keyup', keyHandler, false);
 				document.body.addEventListener('keydown', keyHandler, false);
+
+				var canvas = goo.renderer.domElement;
+				var t = [];
+				canvas.addEventListener( 'touchstart', function(event) {
+				  for (var i = 0; i < event.touches.length; i++) {
+					var touch = event.touches[i];
+					t[i]={};
+					t[i].pageX = touch.pageX;
+					t[i].pageY = touch.pageY;
+				  }
+				}, false);
+				
+				canvas.addEventListener( 'touchmove', function(event) {
+				  for (var i = 0; i < event.touches.length; i++) {
+					var touch = event.touches[i];
+					keys[37] = Math.min((t[i].pageX - touch.pageX)*0.01,1);
+					keys[38] = Math.min((t[i].pageY - touch.pageY)*0.01,1);
+				  }
+				}, false);
+				
+				canvas.addEventListener( 'touchend', function(event) {
+				  for (var i = 0; i < event.changedTouches.length; i++) {
+					var touch = event.changedTouches[i];
+					keys[37] = 0;
+					keys[38] = 0;
+				  }
+				}, false);
+
 				// Finally we add a goo callback function. This makes the last 3 lines of code being called every frame.
 				// So every frame we check if one of the cursor keys is pressed and if so we call the
 				// setSteeringValue or the applyEngineForce functions with values > 0.
