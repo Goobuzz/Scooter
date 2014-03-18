@@ -62,8 +62,7 @@ require([
 			// The loader takes care of loading the data
 			var loader = new DynamicLoader({
 				world: goo.world,
-				rootPath: 'res',
-				progressCallback: progressCallback
+				rootPath: 'res'
 			});
 
 			loader.load('root.bundle').then(function(result) {
@@ -88,6 +87,18 @@ require([
 				document.body.appendChild(goo.renderer.domElement);
 
 				// Application code goes here!
+				
+				CocoonJS.App.onLoadInTheWebViewSucceed.addEventListener(function(pageURL) {
+					//CocoonJS.App.showTheWebView();
+					console.error("OKOKOKOK");
+					CocoonJS.App.forwardAsync("CocoonJS.App.show(0, 0, " + window.innerWidth + "," + window.innerHeight + ");");
+				});
+
+				CocoonJS.App.onLoadInTheWebViewFailed.addEventListener(function(pageURL) {
+					console.error("Could not load the HTML file in the webview");
+				});
+
+				CocoonJS.App.loadInTheWebView("webview.html");
 
 				// Process the world, so all entities, world bounds and worldTransforms are up to date.
 				goo.world.process();
@@ -96,7 +107,7 @@ require([
 				// see http://code.gooengine.com/latest/docs/World.html
 
 				// Get all the duplicated star entities and give them real physical behavior using the AmmoComponent
-				var stars = goo.world.getEntities().filter(function(e){return e.name=='Star'});
+				var stars = goo.world.by.name('Star').toArray();
 				stars.forEach(function(star) {
 					star.setComponent(new AmmoComponent({mass:3, useWorldBounds:true, showBounds:false}));
 				});
