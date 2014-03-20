@@ -84,21 +84,22 @@ require([
 
 				// This code will be called when the project has finished loading.
 				goo.renderer.domElement.id = 'goo';
+				goo.renderer.domElement.width  = window.innerWidth ;
+				goo.renderer.domElement.height = window.innerHeight;
 				document.body.appendChild(goo.renderer.domElement);
 
 				// Application code goes here!
 				
 				CocoonJS.App.onLoadInTheWebViewSucceed.addEventListener(function(pageURL) {
 					//CocoonJS.App.showTheWebView();
-					console.error("OKOKOKOK");
-					CocoonJS.App.forwardAsync("CocoonJS.App.show(0, 0, " + window.innerWidth + "," + window.innerHeight + ");");
+					CocoonJS.App.forwardAsync("CocoonJS.App.show(0, 0, " + window.innerWidth/4 + "," + window.innerHeight + ");");
 				});
 
 				CocoonJS.App.onLoadInTheWebViewFailed.addEventListener(function(pageURL) {
 					console.error("Could not load the HTML file in the webview");
 				});
 
-				CocoonJS.App.loadInTheWebView("webview.html");
+				CocoonJS.App.loadInTheWebView("WV.html");
 
 				// Process the world, so all entities, world bounds and worldTransforms are up to date.
 				goo.world.process();
