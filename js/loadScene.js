@@ -84,7 +84,7 @@ require([
 
 				// This code will be called when the project has finished loading.
 				goo.renderer.domElement.id = 'goo';
-				goo.renderer.domElement.width  = window.innerWidth ;
+				goo.renderer.domElement.width  = window.innerWidth;
 				goo.renderer.domElement.height = window.innerHeight;
 				document.body.appendChild(goo.renderer.domElement);
 
