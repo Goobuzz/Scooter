@@ -98,7 +98,12 @@ require([
 				// Get all the duplicated star entities and give them real physical behavior using the AmmoComponent
 				var stars = goo.world.getEntities().filter(function(e){return e.name=='Star'});
 				stars.forEach(function(star) {
-					star.setComponent(new AmmoComponent({mass:3, useWorldBounds:true, showBounds:false}));
+					star.setComponent(new AmmoComponent({mass:0, useWorldBounds:true, showBounds:false}));
+				});
+				goo.world.process();
+				var CF_NO_CONTACT_RESPONSE = 4;
+				stars.forEach(function(star) {
+					star.ammoComponent.body.setCollisionFlags( star.ammoComponent.body.getCollisionFlags() | CF_NO_CONTACT_RESPONSE );
 				});
 				var car  = goo.world.by.name('Car').first();
 				var logo = goo.world.by.name('goo_logo_mesh').first();
