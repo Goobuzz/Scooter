@@ -94,6 +94,8 @@ require([
 				
 				// goo.world.by.name returns an goo/entities/EntitySelection object
 				// see http://code.gooengine.com/latest/docs/World.html
+				
+				var starMap = {}; // use this to map the Ammo object pointer to the Goo entity
 
 				// Get all the duplicated star entities and give them real physical behavior using the AmmoComponent
 				var stars = goo.world.getEntities().filter(function(e){return e.name=='Star'});
@@ -103,7 +105,9 @@ require([
 				goo.world.process();
 				var CF_NO_CONTACT_RESPONSE = 4;
 				stars.forEach(function(star) {
-					star.ammoComponent.body.setCollisionFlags( star.ammoComponent.body.getCollisionFlags() | CF_NO_CONTACT_RESPONSE );
+					var body = star.ammoComponent.body;
+					body.setCollisionFlags( body.getCollisionFlags() | CF_NO_CONTACT_RESPONSE );
+					starMap[body.ptr || body.a] = star;
 				});
 				var car  = goo.world.by.name('Car').first();
 				var logo = goo.world.by.name('goo_logo_mesh').first();
@@ -207,7 +211,25 @@ require([
 				// setSteeringValue or the applyEngineForce functions with values > 0.
 				// This effectively accelerates and steers the car.
 				// ( There is also a setBrake function available if you need that. )
+				
+				
+				var dp = ammoSystem.ammoWorld.getDispatcher();
+				
 				goo.callbacks.push(function() {
+					var num = dp.getNumManifolds();
+					for(var i = 0; i < num; i++ ) {
+						var manifold = dp.getManifoldByIndexInternal(i);
+						var num_contacts = manifold.getNumContacts();
+						if ( num_contacts === 0 ) {
+							continue;
+						}
+						var body0 = starMap[ manifold.getBody0() ];
+						var body1 = starMap[ manifold.getBody1() ];
+						var star = body0 || body1;
+						if( star) {
+							star.removeFromWorld();
+						}
+					}
 					vehicleHelper.setSteeringValue( keys[37] * 0.3 + keys[39] * -0.3);
 					vehicleHelper.applyEngineForce( keys[38] * -700 + keys[40] * 500);
 					vehicleHelper.applyEngineForce( keys[38] * -700 + keys[40] * 500, false);
